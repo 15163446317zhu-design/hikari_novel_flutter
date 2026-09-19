@@ -31,7 +31,7 @@ class BrowsingHistoryPage extends StatelessWidget {
               child: ListView(
                 children: controller.list.map((item) {
                   return BrowsingHistoryCard(
-                    vh: item,
+                    bh: item,
                     onTap: () => AppSubRouter.toNovelDetail(aid: item.aid),
                     onDelete: () => DBService.instance.deleteBrowsingHistory(item.aid),
                   );

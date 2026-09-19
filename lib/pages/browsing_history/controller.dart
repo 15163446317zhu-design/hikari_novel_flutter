@@ -22,8 +22,10 @@ class BrowsingHistoryController extends GetxController {
         pageState.value = PageState.empty;
         return;
       }
-      list.clear();
-      list.addAll((history.map((e) => BrowsingHistory(aid: e.aid, title: e.title, img: e.img, time: e.time))));
+      list
+        ..clear()
+        ..addAll((history.map((e) => BrowsingHistory(aid: e.aid, title: e.title, img: e.img, time: e.time))))
+        ..sort((a, b) => b.time.compareTo(a.time)); //按从新到旧的顺序进行排序
       pageState.value = PageState.success;
     });
   }
